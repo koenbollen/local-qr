@@ -1,0 +1,77 @@
+
+* {
+	font-family: Helvetica;
+	font-size: 14pt;
+}
+
+html, body, #container {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+#content {
+	padding: 20px;
+}
+
+div, input {
+	box-sizing: border-box;
+}
+
+#qr {
+	width: 256px;
+	height: 256px;
+	padding: 0;
+	margin: 0;
+}
+
+#qr canvas {
+	margin: 0;
+	padding: 0;
+}
+
+
+#options-button {
+	color: #bbbbba;
+	font-family: Helvetica;
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 20px;
+	cursor: pointer;
+}
+#options-button:hover {
+	text-decoration: underline;
+	todo: better hover effect;
+}
+#options-button .arrow {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+#options {
+	width: 296px;
+	background: #e4e4e4;
+	border-top: 1px #b9b9b9 solid;
+	box-shadow: inset 0px 3px 3px -2px #888;
+	padding: 20px;
+}
+
+#options .label {
+	color: #595958;
+	font-family: Helvetica;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#in {
+	box-sizing: border-box;
+	font-family: Helvetica;
+	font-size: 24px;
+	color: #595958;
+	padding: 20px;
+	margin: 10px 0 15px 0;
+	border: 0;
+	width: 100%;
+	display: inline;
+	outline: none;
+}

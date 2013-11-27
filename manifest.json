@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Plain Local QR-Code",
+  "name": "Local QR",
   "version": "0.0.1",
   "author": "Koen Bollen <meneer@koenbollen.nl> & Jesse Dijkstra <jesse@blendle.nl>",
 
@@ -9,8 +9,20 @@
 
   "permissions": ["tabs"],
   "browser_action": {
+    "default_icon": "icon19.png",
     "default_title": "Plain Local QR-Code",    
     "default_popup": "popup.html"      
+  },
+
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "windows": "Shift+Alt+Q",
+        "mac": "Shift+Alt+Q",
+        "chromeos": "Shift+Alt+Q",
+        "linux": "Shift+Alt+Q"
+      }
+    }
   },
 
   "offline_enabled": true
