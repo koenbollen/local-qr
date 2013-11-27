@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Plain Local QR-Code",
+  "version": "0.0.1",
+  "author": "Koen Bollen <meneer@koenbollen.nl> & Jesse Dijkstra <jesse@blendle.nl>",
+
+  "description": "A plain & simple QR-Code generator that doesn't use a web-services.",
+  //"icons": {...},
+
+  "permissions": ["tabs"],
+  "browser_action": {
+    "default_title": "Plain Local QR-Code",    
+    "default_popup": "popup.html"      
+  },
+
+  "offline_enabled": true
+}
