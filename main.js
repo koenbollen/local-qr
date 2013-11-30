@@ -33,10 +33,21 @@ window.onload = function() {
     e.preventDefault(); // For the select on focus.
   };
 
-  document.getElementById("options-button").onclick = function() {
+  var optionsButton = document.getElementById("options-button");
+
+  optionsButton.onclick = function() {
     var o = document.getElementById("options");
-    o.style.display = o.style.display == "none" ? "block" : "none";
-    input.focus();
+
+    if(o.className === "active") {
+      optionsButton.setAttribute("class", "");
+      o.setAttribute("class", "");
+    } else {
+      optionsButton.setAttribute("class", "active");
+      o.setAttribute("class", "active");
+
+      input.focus();
+      input.select();
+    }
   };
 
 };

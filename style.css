@@ -35,25 +35,52 @@ div, input {
 	color: #bbbbba;
 	font-family: Helvetica;
 	font-size: 14px;
+	line-height: 1em;
 	font-weight: bold;
+
+	padding-left: 15px;
 	margin-top: 20px;
+
 	cursor: pointer;
+	position: relative;
 }
-#options-button:hover {
-	text-decoration: underline;
-	todo: better hover effect;
+
+#options-button:before {
+	-webkit-transition: -webkit-transform 0.15s linear;
+	transition: transform 0.15s linear;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	width: 0;
+	height: 0;
+	display: block;
+	content: "";
+	z-index: 10;
+	
+	border-top: 5px solid #bbbbba;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+
+	position: absolute;
+	left: 0px;
+	top: 4px;
 }
-#options-button .arrow {
-	display: inline-block;
-	margin-right: 10px;
+
+#options-button.active:before {
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
 }
 
 #options {
+	-webkit-transition: height 0.25s linear;
+	transition: height 0.25s linear;
 	width: 296px;
+	height: 0px;
+	overflow: hidden;
 	background: #e4e4e4;
-	border-top: 1px #b9b9b9 solid;
-	box-shadow: inset 0px 3px 3px -2px #888;
-	padding: 20px;
+}
+
+#options.active {
+	height: 200px;
 }
 
 #options .label {
@@ -63,15 +90,29 @@ div, input {
 	font-weight: bold;
 }
 
+#options .wrapper {
+	padding: 20px;
+}
+
 #in {
-	box-sizing: border-box;
+	border-radius: 3px;
 	font-family: Helvetica;
 	font-size: 24px;
 	color: #595958;
-	padding: 20px;
+	padding: 10px;
 	margin: 10px 0 15px 0;
-	border: 0;
+	border: none;
 	width: 100%;
 	display: inline;
 	outline: none;
+}
+
+#correction-level {
+	-webkit-appearance: none;
+	font-family: Helvetica;
+	color: #595958;
+	border: none;
+	padding: 10px;
+	margin: 10px 0 15px 0;
+	position: relative;
 }

@@ -5,12 +5,19 @@
 <div id="container">
 	<div id="content">
 		<div id="qr"></div>
-		<div id="options-button"><span class="arrow">▾</span>Options</div>
+		<div id="options-button">Options</div>
 	</div>
-	<div id="options" style="display:none">
-		<div class="label">Contents:</div>
-		<input type="text" id="in">
-		<div class="label">Correction level:</div>
+	<div id="options">
+		<div class="wrapper">
+			<div class="label">Contents:</div>
+			<input type="text" id="in">
+			<div class="label">Correction level:</div>
+			<select id="correction-level">
+				<option>Low</option>
+				<option>Normal</option>
+				<option>High</option>
+			</select>
+		</div>
 	</div>
 </div>
 <script src="qrcode.min.js"></script>
