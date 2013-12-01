@@ -9,10 +9,10 @@ window.onload = function() {
   qrcode = new QRCode("qr", {
        text : "",
        width : 256,
-       height : 256
+       height : 256,
   });
 
-  var prev;  
+  var prev;
   chrome.tabs.getSelected(null, function(tab) {
     document.getElementById( "in" ).value = prev = tab.url;
     updateQR();
@@ -50,4 +50,28 @@ window.onload = function() {
     }
   };
 
+  var lis = document.querySelectorAll('ul.slider li');
+  [].forEach.call(lis,function(li) {
+    li.onclick = function(e) {
+      if( !this.classList.contains('active') ) {
+        [].forEach.call(lis, function(li) { li.classList.remove('active'); } );
+        this.classList.add('active');
+
+        var i = 0;
+        var child = this;
+        while( (child = child.previousSibling) != null )
+          if (child.nodeType === 1)
+            i++;
+
+        if(i == 0 ) {
+          qrcode._htOption.correctLevel = QRCode.CorrectLevel.M;
+        } else if(i == 1 ) {
+          qrcode._htOption.correctLevel = QRCode.CorrectLevel.Q;
+        } else if(i == 2 ) {
+          qrcode._htOption.correctLevel = QRCode.CorrectLevel.H;
+        }
+        updateQR();
+      }
+    }
+  });
 };
