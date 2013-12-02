@@ -12,10 +12,29 @@ window.onload = function() {
        height : 256,
   });
 
-  var prev;
-  chrome.tabs.getSelected(null, function(tab) {
-    document.getElementById( "in" ).value = prev = tab.url;
-    updateQR();
+
+  chrome.storage.sync.get("correctionlevel", function(items) {
+    console.log(items);
+    if( items['correctionlevel'] !== undefined ) {
+      var lis = document.querySelectorAll('ul.slider li');
+      lis[2].classList.remove('active');
+      lis[items['correctionlevel']].classList.add('active');
+
+      var i = items['correctionlevel'];
+      if(i == 0 ) {
+        qrcode._htOption.correctLevel = QRCode.CorrectLevel.M;
+      } else if(i == 1 ) {
+        qrcode._htOption.correctLevel = QRCode.CorrectLevel.Q;
+      } else if(i == 2 ) {
+        qrcode._htOption.correctLevel = QRCode.CorrectLevel.H;
+      }
+    }
+
+    var prev;
+    chrome.tabs.getSelected(null, function(tab) {
+      document.getElementById( "in" ).value = prev = tab.url;
+      updateQR();
+    });
   });
 
   var input = document.getElementById("in");
@@ -65,6 +84,7 @@ window.onload = function() {
           if (child.nodeType === 1)
             i++;
 
+
         if(i == 0 ) {
           qrcode._htOption.correctLevel = QRCode.CorrectLevel.M;
         } else if(i == 1 ) {
@@ -73,6 +93,7 @@ window.onload = function() {
           qrcode._htOption.correctLevel = QRCode.CorrectLevel.H;
         }
         updateQR();
+        chrome.storage.sync.set({'correctionlevel': i});
       }
     }
   });
