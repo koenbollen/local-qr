@@ -2,10 +2,12 @@
   "manifest_version": 2,
   "name": "Local QR",
   "version": "0.0.1",
-  "author": "Koen Bollen <meneer@koenbollen.nl> & Jesse Dijkstra <jesse@blendle.nl>",
+  "author": "Koen Bollen <meneer@koenbollen.nl> & Jesse Dijkstra <mail@jessedijkstra.nl>",
 
   "description": "A plain & simple QR-Code generator that doesn't use a web-services.",
-  //"icons": {...},
+  "icons": {
+    "128": "icon128.png"
+  },
 
   "permissions": ["tabs"],
   "browser_action": {

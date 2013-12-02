@@ -34,6 +34,7 @@ window.onload = function() {
   };
 
   var optionsButton = document.getElementById("options-button");
+  var wrapper = document.querySelector(".wrapper");
 
   optionsButton.onclick = function() {
     var o = document.getElementById("options");
@@ -41,6 +42,7 @@ window.onload = function() {
     if(o.className === "active") {
       optionsButton.setAttribute("class", "");
       o.setAttribute("class", "");
+      wrapper.style.marginLeft = "0px";
     } else {
       optionsButton.setAttribute("class", "active");
       o.setAttribute("class", "active");
@@ -74,4 +76,17 @@ window.onload = function() {
       }
     }
   });
+
+  document.getElementById("info").onclick = function(e) {
+    wrapper.style.marginLeft = "-296px";
+    var o = document.getElementById("options");
+
+    if(o.className !== "active") {
+      optionsButton.setAttribute("class", "active");
+      o.setAttribute("class", "active");
+
+      input.focus();
+      input.select();
+    }
+  };
 };

@@ -80,7 +80,7 @@ div, input {
 }
 
 #options.active {
-	height: 200px;
+	height: 210px;
 }
 
 #options .label {
@@ -91,6 +91,10 @@ div, input {
 }
 
 #options .wrapper {
+	display: inline-block;
+	width: 296px;
+	-webkit-transition: margin-left 0.25s linear;
+	margin-left: 0px;
 	padding: 20px;
 }
 
@@ -163,3 +167,42 @@ ul.slider li.active:before {
 	color: #585858;
 }
 
+
+@font-face {
+  font-family: 'octicons';
+  font-style: normal;
+  src: url('octicons.woff') format('woff');
+}
+
+#links {
+	position: absolute;
+	bottom: 2px;
+	right: 4px;
+	color: #dfdfdf;
+}
+
+#links a {
+	color: #dfdfdf;
+	cursor: pointer;
+	-webkit-transition: color 1.25s linear;
+}
+#options.active #links a {
+	color: #c1c1c1;
+}
+
+.octicon {
+	font: normal normal 16px octicons;
+	line-height: 1;
+	display: inline-block;
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+}
+.octicon-globe:before {
+	content: '\f0b6';
+}
+.octicon-info:before {
+	content: '\f059';
+}
+.octicon-mark-github:before {
+	content: '\f00a';
+}
