@@ -30,7 +30,6 @@ window.onload = function() {
       }
     }
 
-    var prev;
     chrome.tabs.getSelected(null, function(tab) {
       document.getElementById( "in" ).value = prev = tab.url;
       updateQR();
@@ -39,6 +38,7 @@ window.onload = function() {
 
   var input = document.getElementById("in");
 
+  var prev;
   input.onkeyup = function() {
     if(document.getElementById( "in" ).value != prev) {
       prev = document.getElementById( "in" ).value;
